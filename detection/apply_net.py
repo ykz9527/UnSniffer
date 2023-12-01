@@ -63,11 +63,13 @@ def main(args):
 
     # Create inference output directory and copy inference config file to keep
     # track of experimental settings
-    inference_output_dir = get_inference_output_dir(
-        cfg['OUTPUT_DIR'],
-        args.test_dataset,
-        args.inference_config,
-        args.image_corruption_level)
+    #inference_output_dir = get_inference_output_dir(
+    #    cfg['OUTPUT_DIR'],
+    #    args.test_dataset,
+    #    args.inference_config,
+    # #   args.image_corruption_level)
+    print(f"cfg['OUTPUT_DIR']={cfg['OUTPUT_DIR']}")
+    inference_output_dir = cfg['OUTPUT_DIR']
 
     os.makedirs(inference_output_dir, exist_ok=True)
     copyfile(args.inference_config, os.path.join(

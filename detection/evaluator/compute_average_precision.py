@@ -20,11 +20,12 @@ def main(args, cfg=None, dataname=''):
         cfg = setup_config(args, random_seed=args.random_seed, is_testing=True)
 
     # Build path to inference output
-    inference_output_dir = get_inference_output_dir(
-        cfg['OUTPUT_DIR'],
-        args.test_dataset,
-        args.inference_config,
-        args.image_corruption_level)
+    #inference_output_dir = get_inference_output_dir(
+    #    cfg['OUTPUT_DIR'],
+    #    args.test_dataset,
+    #    args.inference_config,
+    #    args.image_corruption_level)
+    inference_output_dir = "data"
     # inference_output_dir = '/nobackup-slow/dataset/my_xfdu'
     prediction_file_name = os.path.join(
         inference_output_dir,

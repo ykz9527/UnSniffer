@@ -1,0 +1,1 @@
+<annotation><folder>000000000001.jpg</folder><filename>000000000001.jpg</filename><size><width>467</width><height>640</height><depth>3</depth></size><object><name>potted plant</name><bndbox><xmin>13.733908653259277</xmin><ymin>83.0462646484375</ymin><xmax>409.3541564941406</xmax><ymax>457.7421875</ymax></bndbox></object></annotation>

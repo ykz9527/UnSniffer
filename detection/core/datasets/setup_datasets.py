@@ -288,9 +288,8 @@ def setup_coco_id_dataset(dataset_dir):
         "coco_id_val").thing_dataset_id_to_contiguous_id = metadata.VOC_THING_DATASET_ID_TO_CONTIGUOUS_ID
 
 def setup_coco_mixed_dataset(dataset_dir):
-    test_image_dir = os.path.join(dataset_dir, 'val2017')
-    test_json_annotations = os.path.join(
-        dataset_dir, 'annotations', 'instances_val2017_mixed_ID.json')
+    test_image_dir = os.path.join('img')
+    test_json_annotations = os.path.join('configs', 'instances_val2017_mixed_ID.json')
         # dataset_dir, 'annotations', 'COCO_ID.json')
 
     register_coco_instances(

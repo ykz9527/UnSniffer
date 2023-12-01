@@ -211,11 +211,12 @@ def setup_config(args, random_seed=None, is_testing=False, ood=False):
     dataset_name = os.path.split(os.path.split(
         os.path.split(args.config_file)[0])[0])[-1]
     # import ipdb; ipdb.set_trace()
-    cfg['OUTPUT_DIR'] = os.path.join(core.data_dir(),
-                                     dataset_name,
-                                     model_name,
-                                     os.path.split(args.config_file)[-1][:-5],
-                                     'random_seed_' + str(random_seed))
+    #cfg['OUTPUT_DIR'] = os.path.join(core.data_dir(),
+    #                                 dataset_name,
+    #                                 model_name,
+    #                                 os.path.split(args.config_file)[-1][:-5],
+    #                                 'random_seed_' + str(random_seed))
+    cfg['OUTPUT_DIR'] = "data/"
     if is_testing:
         if not os.path.isdir(cfg['OUTPUT_DIR']):
             raise NotADirectoryError(
