@@ -1,15 +1,14 @@
 import os
 from PIL import Image
 import re
-
+import argparse  
 image_folder = "img"
 images = []
 
-def set_up_parse():
-     args.add_argument("--img-dir", type=str, default="img", help="path to img directory")
-
-self.args = set_up_parse()
-image_folder = self.args.img_dir + "/"
+parser = argparse.ArgumentParser()  
+parser.add_argument('--img-dir', type=str, default='img')  
+args = parser.parse_args()
+image_folder = args.img_dir  + "/"
 for filename in os.listdir(image_folder):
     if filename.lower().endswith(".jpg") or filename.lower().endswith(".png"):
         file_path = os.path.join(image_folder, filename)
