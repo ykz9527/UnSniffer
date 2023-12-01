@@ -25,8 +25,8 @@ python -m pip install detectron2 -f \
   https://dl.fbaipublicfiles.com/detectron2/wheels/cu113/torch1.10/index.html
 ```
 
-预训练文件: 需要放入config目录下
-[model_final.pt](https://drive.google.com/file/d/1kp60e6nh0iIOPd41f4JI6Yo9r_r7MqRo/view?usp=sharing).
+预训练文件: 需要放入data目录下
+[model_final.pth](https://drive.google.com/file/d/1kp60e6nh0iIOPd41f4JI6Yo9r_r7MqRo/view?usp=sharing).
 
 # Dataset Preparation
 
