@@ -2,8 +2,11 @@ import os
 from PIL import Image
 import re
 import argparse  
+import xml.etree.ElementTree as ET
+
 image_folder = "img"
 images = []
+annotations = []
 
 parser = argparse.ArgumentParser()  
 parser.add_argument('--img-dir', type=str, default='img')  
@@ -31,109 +34,40 @@ for filename in os.listdir(image_folder):
             "id": image_id
         }
         images.append(image_info)
-
+        
+    if filename.lower().endswith(".xml"):
+        xml_file = os.path.join(image_folder, filename)
+        tree = ET.parse(xml_file)
+        root = tree.getroot()
+        
+        image_id = int(root.find("filename").text[:-4])
+        
+        for obj in root.findall("object"):
+            category = obj.find("name").text
+            bbox = obj.find("bndbox")
+            xmin = float(bbox.find("xmin").text)
+            ymin = float(bbox.find("ymin").text)
+            xmax = float(bbox.find("xmax").text)
+            ymax = float(bbox.find("ymax").text)
+            
+            annotation = {
+                "id": len(annotations) + 1,
+                "image_id": image_id,
+                "category_id": 1,
+                "bbox": [xmin, ymin, xmax - xmin, ymax - ymin],
+                "area": (xmax - xmin) * (ymax - ymin),
+                "iscrowd": 0
+            }
+            
+        annotations.append(annotation)
+        
 import json
 
 type_know = [
         {
             "id": 1,
-            "name": "person",
-            "supercategory": "person"
-        },
-        {
-            "id": 2,
-            "name": "bird",
-            "supercategory": "animal"
-        },
-        {
-            "id": 3,
-            "name": "cat",
-            "supercategory": "animal"
-        },
-        {
-            "id": 4,
-            "name": "cow",
-            "supercategory": "animal"
-        },
-        {
-            "id": 5,
-            "name": "dog",
-            "supercategory": "animal"
-        },
-        {
-            "id": 6,
-            "name": "horse",
-            "supercategory": "animal"
-        },
-        {
-            "id": 7,
-            "name": "sheep",
-            "supercategory": "animal"
-        },
-        {
-            "id": 8,
-            "name": "airplane",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 9,
-            "name": "bicycle",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 10,
-            "name": "boat",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 11,
-            "name": "bus",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 12,
-            "name": "car",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 13,
-            "name": "motorcycle",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 14,
-            "name": "train",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 15,
-            "name": "bottle",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 16,
-            "name": "chair",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 17,
-            "name": "dining table",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 18,
-            "name": "potted plant",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 19,
-            "name": "couch",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 20,
-            "name": "tv",
-            "supercategory": "indoor"
+            "name": "cigarette",
+            "supercategory": "cigarette"
         }
     ]
 
@@ -200,7 +134,7 @@ data = {
     "info": info,
     "licenses": licenses,
     "images": images,
-    "annotations": [],
+    "annotations": annotations,
     "categories": type_know
 }
 

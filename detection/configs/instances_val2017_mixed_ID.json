@@ -79,107 +79,65 @@
             "id": 4
         }
     ],
-    "annotations": [],
-    "categories": [
+    "annotations": [
         {
             "id": 1,
-            "name": "person",
-            "supercategory": "person"
+            "image_id": 1,
+            "category_id": 1,
+            "bbox": [
+                13.733908653259277,
+                83.0462646484375,
+                395.62024784088135,
+                374.6959228515625
+            ],
+            "area": 148237.2938635029,
+            "iscrowd": 0
         },
         {
             "id": 2,
-            "name": "bird",
-            "supercategory": "animal"
+            "image_id": 2,
+            "category_id": 1,
+            "bbox": [
+                300.1934814453125,
+                1.646803379058838,
+                -165.19488525390625,
+                193.9916548728943
+            ],
+            "area": -32046.429166943155,
+            "iscrowd": 0
         },
         {
             "id": 3,
-            "name": "cat",
-            "supercategory": "animal"
+            "image_id": 3,
+            "category_id": 1,
+            "bbox": [
+                22.22770881652832,
+                15.362638473510742,
+                805.5445690155029,
+                782.3557453155518
+            ],
+            "area": 630222.4216770187,
+            "iscrowd": 0
         },
         {
             "id": 4,
-            "name": "cow",
-            "supercategory": "animal"
-        },
+            "image_id": 4,
+            "category_id": 1,
+            "bbox": [
+                72.40814208984375,
+                82.35929107666016,
+                128.4337158203125,
+                232.8393783569336
+            ],
+            "area": 29904.42655167263,
+            "iscrowd": 0
+        }
+    ],
+    "categories": [
         {
-            "id": 5,
-            "name": "dog",
-            "supercategory": "animal"
-        },
-        {
-            "id": 6,
-            "name": "horse",
-            "supercategory": "animal"
-        },
-        {
-            "id": 7,
-            "name": "sheep",
-            "supercategory": "animal"
-        },
-        {
-            "id": 8,
-            "name": "airplane",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 9,
-            "name": "bicycle",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 10,
-            "name": "boat",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 11,
-            "name": "bus",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 12,
-            "name": "car",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 13,
-            "name": "motorcycle",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 14,
-            "name": "train",
-            "supercategory": "vehicle"
-        },
-        {
-            "id": 15,
-            "name": "bottle",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 16,
-            "name": "chair",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 17,
-            "name": "dining table",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 18,
-            "name": "potted plant",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 19,
-            "name": "couch",
-            "supercategory": "indoor"
-        },
-        {
-            "id": 20,
-            "name": "tv",
-            "supercategory": "indoor"
+            "id": 1,
+            "name": "cigarette",
+            "supercategory": "cigarette"
         }
     ]
 }
